@@ -7,9 +7,7 @@ buttons.forEach(addButtonListener);
 
 function addButtonListener(button) {
     button.addEventListener('click', (e) => {
-        let myElement = document.querySelector(`#${e.target.id}`);
-        //console.log(myElement);
-        let cssObj = window.getComputedStyle(myElement, null);
+        let cssObj = window.getComputedStyle(button, null);
         //console.log(cssObj);
         let bgColor = cssObj.getPropertyValue("background-color");
        // console.log(bgColor);
