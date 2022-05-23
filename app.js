@@ -3,14 +3,16 @@ const buttons = document.querySelectorAll('.button');
 const body = document.querySelector('body');
 
 
-buttons.forEach(element => {
-    this.addEventListener("click", function(e){
-        //e.target.style.backgroundColor = 'red'
-        //myElement = document.querySelector("#"+e.target.id)   ;
-        //console.log(myElement.style);
-        //console.dir(e.target.outerHTML);
-        body.style.backgroundColor = e.target.id;
-        //body.style.backgroundColor = e.target.style.backgroundColor;
-    })
-});
+buttons.forEach(addButtonListener);
 
+function addButtonListener(button) {
+    button.addEventListener('click', (e) => {
+        let myElement = document.querySelector(`#${e.target.id}`);
+        //console.log(myElement);
+        let cssObj = window.getComputedStyle(myElement, null);
+        //console.log(cssObj);
+        let bgColor = cssObj.getPropertyValue("background-color");
+       // console.log(bgColor);
+        body.style.backgroundColor = bgColor;
+    })
+}
